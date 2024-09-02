@@ -20,18 +20,12 @@ def load_model(file_name):
 
 if __name__ == "__main__":
     model_file = 'model/kmeans_scratch_model.pkl'
-
+    df=load_data('/home/swostika/Documents/datascience/ds_projects/market_basket/data/archive/Mall_Customers.csv')
     kmeans_scratch = KMeansScratch.load_model(model_file)
 
     
-    input_data = pd.DataFrame({
-        'Age': [45],
-        'Annual Income (k$)': [34],
-        'Spending Score (1-100)': [45],
-        'Gender': ['Male']
-    })
-    print(f"data:{input_data}")
-    processed_data = preprocess_data(input_data)
+
+    processed_data = preprocess_data(df)
     print(f"processed:{preprocess_data}")
     
 

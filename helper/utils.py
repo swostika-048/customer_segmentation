@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
-
+from mpl_toolkits.mplot3d import Axes3D
 def load_data(file_path):
     """
     Load the dataset from a CSV file.
@@ -58,25 +58,53 @@ def check_null(df):
     print(df.isnull().sum())
 
 
-def plot_clusters(X_scaled, kmeans):
-    """
-    Plot the training data and cluster centers.
 
-    Parameters:
-    X_scaled (numpy.ndarray): The scaled training data used for clustering.
-    kmeans (KMeans): The trained KMeans model.
-    """
-    # Plot the training data with cluster assignments
-    plt.scatter(X_scaled[:, 0], X_scaled[:, 1], c=kmeans.labels, s=50, cmap='viridis', label='Data Points')
-    
-    # Plot the cluster centers
-    # plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], c='red', s=200, alpha=0.75, marker='X', label='Cluster Centers')
-    
-    # Add title and legend
-    plt.title('Cluster Centers and Data Points')
-    plt.legend()
-    
-    # Display the plot
+# def plot_clusters_and_centroids(X, Y, kmeans, title='Customer Groups', xlabel='Annual Income', ylabel='Spending Score'):
+#     plt.figure(figsize=(8, 8))
+
+#     # Define colors and labels for the clusters
+#     colors = ['green', 'red', 'yellow', 'violet', 'blue']
+#     labels = ['Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4', 'Cluster 5']
+
+#     # Plot each cluster
+#     for i in range(len(colors)):
+#         plt.scatter(X[Y == i, 0], X[Y == i, 1], s=50, c=colors[i], label=labels[i])
+
+#     # Plot the centroids
+#     # plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s=100, c='cyan', label='Centroids')
+
+#     # Add titles and labels
+#     plt.title(title)
+#     plt.xlabel(xlabel)
+#     plt.ylabel(ylabel)
+#     plt.legend()
+
+#     # Display the plot
+#     plt.show()
+
+def plot_clusters_and_centroids(X, labels, kmeans, title='Customer Groups', xlabel='Annual Income', ylabel='Spending Score', zlabel='Age'):
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
+
+    # Define colors and labels for the clusters
+    colors = ['green', 'red', 'yellow', 'violet', 'blue']
+    cluster_labels = [f'Cluster {i+1}' for i in range(len(colors))]
+
+    # Plot each cluster
+    for i in range(len(colors)):
+        ax.scatter(X[labels == i, 0], X[labels == i, 1], X[labels == i, 2], s=50, c=colors[i], label=cluster_labels[i])
+
+    # # Plot the centroids
+    # ax.scatter(kmeans.centroids[:, 0], kmeans.centroids[:, 1], kmeans.centroids[:, 2], s=100, c='cyan', label='Centroids', marker='X')
+
+    # Add titles and labels
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.set_zlabel(zlabel)
+    ax.legend()
+
+    # Show the plot
     plt.show()
 
 # if __name__ == "__main__":

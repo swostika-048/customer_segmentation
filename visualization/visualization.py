@@ -6,7 +6,7 @@ import os,sys
 from sklearn.preprocessing import StandardScaler
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 print(f"path:{os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))}")
-from utils.utils import load_data,preprocess_data,statistical_info,check_null
+from helper.utils import load_data,preprocess_data,statistical_info,check_null
 print("Current Python Path:")
 for p in sys.path:
     print(p)
