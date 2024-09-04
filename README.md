@@ -12,6 +12,9 @@
   - [visualization after clustering algorithm implementation:](#visualization-after-clustering-algorithm-implementation)
     - [Scatter plot (2D):](#scatter-plot-2d)
     - [Scatter plot (3D):](#scatter-plot-3d)
+  - [streamlit implementation:](#streamlit-implementation)
+    - [stnapshot of userinterface:](#stnapshot-of-userinterface)
+  - [**References:**](#references)
 
 ## Overview:
 This project demonstrates the implementation of the K-Means clustering algorithm, a popular unsupervised machine learning technique used for partitioning a dataset into distinct clusters based on the similarity of data points. The goal of clustering is to group similar data points together while ensuring that the points in different groups (or clusters) are as distinct as possible.
@@ -145,8 +148,13 @@ this image shows the 4 clusters represented with diffrent colors. For cluster vi
 For better visualization 3D scatterplot is shown below:
 ![3d](screenshots/3d1.png)
 
+## streamlit implementation:
+After implementing K-means clustering, the dataset was labeled with the corresponding cluster labels. These labels were then used to train a logistic regression model for classification. The logistic regression model was trained to classify new data points based on the cluster labels, enabling predictions about which cluster a new customer might belong to.
+### stnapshot of userinterface:
+![screenshotui](screenshots/firstui.png)
+![screenshotui](screenshots/secondui.png)
 
-References:
+## **References:**
 
 - [https://www.youtube.com/watch?v=7J3mz9LMjqg](https://www.youtube.com/watch?v=7J3mz9LMjqg)
 - [https://www.geeksforgeeks.org/k-means-clustering-introduction/](https://www.geeksforgeeks.org/k-means-clustering-introduction/)
